@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.haopz.status_android.MainActivity">
+
+    <TextView
+        android:background="@color/colorAccent"
+        android:textColor="#fff"
+        android:id="@+id/colorStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="进入颜色状态栏" />
+
+    <TextView
+        android:layout_marginTop="0.5dp"
+        android:background="@color/colorAccent"
+        android:textColor="#fff"
+        android:id="@+id/imgStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="进入图片状态栏" />
+
+    <TextView
+        android:layout_marginTop="0.5dp"
+        android:background="@color/colorAccent"
+        android:textColor="#fff"
+        android:id="@+id/MOsStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="Android 6.0 以上白底黑字" />
+
+</LinearLayout>

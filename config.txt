@@ -1,0 +1,10 @@
+ext {
+    config = [
+            versionCode: 222,
+            versionName: "2.2.2"
+    ]
+
+    dependencies =[
+        supportLibraryVersion : "26.1.0"
+    ]
+}

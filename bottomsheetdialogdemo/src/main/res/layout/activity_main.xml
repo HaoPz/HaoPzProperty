@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haopz.bottomsheetdialogdemo.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#c3c3c3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/openBottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="openBottomSheet" />
+
+        <TextView
+            android:id="@+id/openBottomSheetDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="openBottomSheetDialog" />
+
+        <TextView
+            android:id="@+id/openBottomSheetDialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="openBottomSheetDialogFragment" />
+    </LinearLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+        <TextView
+            android:id="@+id/bottomSheetContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="100dp"
+            android:text="bottomSheetContent"
+            android:textColor="#fff" />
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,6 @@
+ext {
+    config = [
+            versionCode: 222,
+            versionName: "2.2.2"
+    ]
+}

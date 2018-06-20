@@ -1,0 +1,2 @@
+include ':haopzalipaytest', ':haopz6.0permissionutils', ':haopz7.0fileprovider', ':banner_haopz', ':viewpager_haopz', ':bottomupview', ':status_android', ':StatusSample', ':Statuslibrary', ':bottomsheetdialogdemo', ':androidpaomadeng', ':recyclerviewdemo', ':cardviewdemo', ':notificationdemo', ':toolbarpalettedrawerlayout', ':datepickdemo'
+include 'MyDemo', ':aliPayTest'

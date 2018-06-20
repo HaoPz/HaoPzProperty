@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haopz.haopz70fileprovider.MainActivity">
+
+    <TextView
+        android:id="@+id/takePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4ac56e"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="拍照" />
+
+    <TextView
+        android:id="@+id/takeAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#4ac56e"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="相册"
+        app:layout_constraintTop_toBottomOf="@id/takePhoto" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_toggle_state"
+        android:checked="true"
+        android:textColor="#fff"
+        android:textOff="关闭"
+        android:textOn="打开"
+        app:layout_constraintTop_toBottomOf="@id/takeAlbum" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:showText="true"
+        android:textOff="关闭"
+        android:textOn="打开"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
+    <android.support.v7.widget.SearchView
+        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.SearchView>
+</android.support.constraint.ConstraintLayout>

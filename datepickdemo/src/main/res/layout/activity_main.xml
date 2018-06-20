@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haopz.datepickdemo.MainActivity">
+
+    <com.haopz.datepickdemo.CustomerView
+        android:id="@+id/customView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scroll 调用 scrollTo 滑动"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/chooseZhangDan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择账单日" />
+
+        <DatePicker
+            android:id="@+id/chooseZhangDanDialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:datePickerMode="spinner"></DatePicker>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openDateBottomSheetDialog"
+        android:padding="10dp"
+        android:text="openDateBottomSheetDialog"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
