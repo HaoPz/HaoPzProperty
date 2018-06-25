@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?> <!--基础知识列表-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/include_toolbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_a1b2c3"
+        android:drawableLeft="@drawable/icon_shugang"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="@string/AndroidFourComponents"
+        android:textColor="@color/colorWhite"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/base_knowledge_list_activity"
+        layout="@layout/view_text" />
+
+    <include
+        android:id="@+id/base_knowledge_list_brocastReceiver"
+        layout="@layout/view_text" />
+
+    <include
+        android:id="@+id/base_knowledge_list_service"
+        layout="@layout/view_text" />
+
+    <include
+        android:id="@+id/base_knowledge_list_content_provider"
+        layout="@layout/view_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_a1b2c3"
+        android:drawableLeft="@drawable/icon_shugang"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="@string/AndroidFragment"
+        android:textColor="@color/colorWhite"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/base_knowledge_list_fragment"
+        layout="@layout/view_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_a1b2c3"
+        android:drawableLeft="@drawable/icon_shugang"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="@string/AndroidStorageTechnology"
+        android:textColor="@color/colorWhite"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/base_knowledge_storage_technology"
+        layout="@layout/view_text" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_a1b2c3"
+        android:drawableLeft="@drawable/icon_shugang"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="@string/AndroidVersionDiff"
+        android:textColor="@color/colorWhite"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/base_knowledge_version_diff"
+        layout="@layout/view_text" />
+
+
+</LinearLayout>

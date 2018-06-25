@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mydemo"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+    <!-- 必须的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 推荐的权限 -->
+    <!-- 添加如下权限，以便使用更多的第三方SDK和更精准的统计数据 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+
+    <!--bugly-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:name=".HaoPzApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Base.MainActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--Android 基础学习-->
+        <activity android:name=".Base.BaseKnowLedgeList.BaseKnowLedgeListActivity" />
+        <activity android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivity" />
+        <!-- Activity 简介 - 生命周期 - 横竖屏 - 启动模式 - 界面跳转 -->
+        <activity android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivityIsWhat" />
+        <activity android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivityLife" />
+        <activity
+            android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivityScreenChange"
+            android:configChanges="keyboardHidden|screenSize|orientation"></activity>
+        <activity android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivityStartMode" />
+        <activity android:name=".Base.BaseKnowLedgeList.Activity.BaseKnowLedgeActivityIntent" />
+
+        <!-- BroadCastReceiver -->
+        <activity android:name=".Base.BaseKnowLedgeList.BroadCastReceiver.BaseKnowLedgeBroadCastReceiver" />
+        <receiver android:name=".Base.BaseKnowLedgeList.BroadCastReceiver.BaseKnowLedgeBroadCastReceiver$OrderBroadCast1">
+            <intent-filter>
+                <action android:name="com.haopz.OrderBroadCast1"></action>
+            </intent-filter>
+        </receiver>
+
+        <!-- Service -->
+        <activity android:name=".Base.BaseKnowLedgeList.Service.BaseKnowLedgeService" />
+        <service android:name=".Base.BaseKnowLedgeList.Service.BaseKnowLedgeService$MyService"></service>
+
+        <!--Content Provider-->
+        <activity android:name=".Base.BaseKnowLedgeList.Provider.BaseKnowLedgeContentProvider" />
+
+        <!--持久化-->
+        <activity android:name=".Base.BaseKnowLedgeList.StorageTechnology.StorageTechnologyList" />
+        <activity android:name=".Base.BaseKnowLedgeList.StorageTechnology.BaseStorageTechnologySharePreference" />
+        <activity android:name=".Base.BaseKnowLedgeList.StorageTechnology.BaseStorageTechnologyFile" />
+        <activity android:name=".Base.BaseKnowLedgeList.StorageTechnology.BaseStorageTechnologySQLite" />
+
+        <!--Android 版本间差异性-->
+        <activity android:name=".Base.BaseKnowLedgeList.VersionDiff.AndroidVersionDiffActivity" />
+        <activity android:name=".Base.BaseKnowLedgeList.VersionDiff.AndroidVersionDiffPermission" />
+        <activity android:name=".Base.BaseKnowLedgeList.VersionDiff.AndroidVersionDiffFileProvider" />
+
+        <!--WebView -->
+        <activity android:name=".Base.BaseKnowLedgeList.Web.StartLookWebActivity" />
+
+
+        <!-- UI 界面 -->
+        <activity android:name=".Base.UIActivity.UIBaseActivity"/>
+        <activity android:name=".Base.UIActivity.TanXingHeadActivity"/>
+
+        <!--Android 基础学习-->
+
+
+        <activity android:name=".Base.BaseActivity" />
+
+        <activity android:name=".StickyHeadActivity.StickyHeadActivity" /><!--RecyclerView 粘性头布局-->
+        <activity android:name=".FlowViewActivity.FlowViewActivity" /><!--FlowViewActivity 流布局-->
+        <activity android:name=".SwipeMenuView.SwipeMenuViewActivity" /><!--侧滑删除 Item -->
+        <activity android:name=".DiyProgressBar.DiyProgressBarActivity" /><!--进度条 -->
+        <activity android:name=".CircleImage.CircleImageActivity" /><!-- 圆角View -->
+
+        <!--各种类型系统对话框学习-->
+        <activity android:name=".SystemDialog.SystemDialogActivity" />
+
+        <!--相机相册的学习 兼容到23 -->
+        <activity android:name=".CarameAlbum.CarameAlbumActivity" />
+        <activity android:name=".CarameAlbum.CarameAlbumActivity2" />
+
+        <!-- OkHttp 系列-->
+        <activity android:name=".OkhttpUtils.TestOkhttp" />
+
+        <!--RxJava 系列学习-->
+        <activity android:name=".StudyRxJava.RxJavaActivity" />
+        <activity android:name=".StudyRxJava.BaseRxjavaActivity" />
+
+        <!--retrofit-->
+        <activity android:name=".Retrofit.RetrofitActivity" />
+
+        <!--status bar状态栏 学习; 5.0以下 &#45;&#45; 5.0以上区别及实现方式-->
+        <activity android:name=".StatusBarDemo.StatusBarTest" />
+
+
+        <!--Activity 跳转动画-->
+        <activity android:name=".ActivityTransitions.ActivityA" />
+        <activity android:name=".ActivityTransitions.ActivityB" />
+        <activity android:name=".ActivityTransitions.ActivityC" />
+
+        <!--垂直滚动TextView-->
+        <activity android:name=".VerticalScrollText.VerticalScrollTextActivity" />
+
+        <!--3D ViewPager 画廊-->
+        <activity android:name=".ViewPager.ViewPager3DActivity" />
+
+        <!--布局中圆角图片-->
+        <activity android:name=".LayoutImage.LayoutImageActivity" />
+
+        <!--26字母检索View-->
+        <activity android:name=".IndexList.IndexDemoActivity" />
+
+        <!-- CountDownTimer 倒计时 -->
+        <activity android:name=".CountDownTimer.CountDownTimerDemo" />
+
+        <!-- TextSwitch 滚动条 -->
+        <activity android:name=".TextSwitch.TextSwitchDemo" />
+
+        <!--material Design 5.0集合-->
+        <activity android:name=".MaterialDesign.MaterialDesignActivity" />
+        <activity android:name=".MaterialDesign.BottomNavigationActivity" />
+        <activity android:name=".MaterialDesign.SwitchCompatActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="cn.lovexiaoai.myapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+            <!--//exported:要求必须为false，为true则会报安全异常。
+            //grantUriPermissions:true，表示授予 URI 临时访问权限。-->
+        </provider>
+
+        <!--UMeng-->
+        <!--<meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5ad437c1f43e4813d2000192" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="5abda41ea40fa34763000047" />-->
+        <!--UMeng-->
+
+        <!--bugly -->
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+        <!--<provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>-->
+
+    </application>
+
+</manifest>

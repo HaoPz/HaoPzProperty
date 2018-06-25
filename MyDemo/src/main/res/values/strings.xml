@@ -1,0 +1,283 @@
+<resources>
+    <string name="app_name">MyDemo</string>
+    <string name="stickyHeadActivity">RecyclerView 粘性头布局</string>
+    <string name="FlowViewActivity">FlowView 流布局</string>
+    <string name="SwipeMenuView">侧滑删除</string>
+    <string name="diy_progressbar">进度条</string>
+    <string name="circle_view">圆形View</string>
+    <string name="rx_study">RxJava_RxAndroid学习</string>
+    <string name="okhttp">okhttp封装使用</string>
+    <string name="carame_album">相机和相册调用(兼容到23)</string>
+    <string name="carame_album2">相机和相册调用(兼容到23)</string>
+    <string name="system_dialog">各种类型系统对话框学习</string>
+    <string name="statusbar"><![CDATA[status bar状态栏 学习; 5.0以下 &#45;&#45; 5.0以上区别及实现方式]]></string>
+    <string name="activity_transition">Activity 跳转动画</string>
+    <string name="vertical_scroll_textView">垂直滚动TextView</string>
+    <string name="retrofit">学习Retrofit</string>
+    <string name="viewpager3d">3D ViewPager 画廊</string>
+    <string name="circleView">布局 + 圆角图片</string>
+    <string name="indexList">26字母检索View</string>
+    <string name="countTime">倒计时</string>
+    <string name="ADD">广告栏-- 当前文本动画化并为其中的新文本添加动画</string>
+    <string name="material_design">android  material design 总结</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_navigation">导航</string>
+    <string name="menu_home">首页</string>
+
+
+
+
+
+
+    <string name="AndroidFourComponents">Android 四大组件</string>
+    <!--Activity -->
+        <string name="activiy_mani_fest_info0">Activity 介绍：是一个Android应用程序的重要组成部分.与使用main()方法启动应用程序的编程范例不同，Android系统Activity通过调用与其生命周期的特定阶段相对应的特定回调方法来启动实例中的代码</string>
+        <string name="activiy_mani_fest_info1">Activity 配置清单配置清单：请打开您的清单文件ManiFest.xml 并添加一个  activity 元素作为 application  元素的子元素,此元素唯一必需的属性是 android：name，它指定活动的类名称。您还可以添加定义活动特征的属性，如标签，图标或UI主题</string>
+        <string name="activiy_mani_fest_info2">Activity 声明意图(Intent, intent filter ) 过滤器 - 声明使用权限 - 管理活动生命周期</string>
+        <string name="activityLife0">Activity 正常声明周期: onCreate --> onStart --> onResume --> onPause --> onStop --> onDestory </string>
+        <string name="activityLife1">Activity 加载完成屏幕熄灭: onCreate --> onStart --> onResume --> onPause --> onStop --> onStart --> onResume --> onPause --> onStop --> onDestory  </string>
+        <string name="activityLife2">Activity 进入另一个页面:  onCreate --> onStart --> onResume --> onPause --> onStop --> onStart --> onResume --> onPause --> onStop --> onDestory </string>
+        <string name="activityLife3">Activity 点击了Home键:  onCreate --> onStart --> onResume --> onPause --> onStop --> onStart --> onResume --> onPause --> onStop --> onDestory </string>
+        <string name="activityNoScreenChange">禁止横竖屏:很多软件在设计和开发中为了避免横竖屏切换时引发不必要麻烦,通常会禁止app横竖屏切换,需要在AndrodiManiFest.xml中设置 Activity 中的 android:screenOrientation 属性值来实现,也可以通过代码设置 setRequestOrientation()设置</string>
+        <string name="activityScreenChangeFromUser">用户手动出发横竖屏: setRequestOrientation();来触发横竖屏切换,需要注意,手动调用屏幕切换,无视AndroidManiFest.xml里面的设置</string>
+        <string name="activityScreenChangeLife">1.在res目录下简历 layout-land 和 layout-port目录, 相应的layout文件名不变,再不同横竖屏状态下加载不同布局,对数据处理
+            2.横竖屏切换重启Activity生命周期: onCreate --> onStart --> onResume (发生旋转) --> onPause --> onStop --> onDestory --> onCreate --> onStart --> onResume (退出) --> onPause --> onStop --> onDestory</string>
+        <string name="activityScreenChangeLife1">自动切换时候重启Activity时候数据保存:重写 Activity.onRetainCustomNonConfigurationInstance();用户切换横竖屏幕前保存数据保存时Object*(任何对象),在onCreate()中通过getLastCustomNonConfigurationInstance判断是否空来获取数据,注意一定要重新获取对象,</string>
+        <string name="activityScreenChangeLife2">非重启Activity横竖屏切换:思想:通过 onConfigurationChange 拦截横竖屏切换,从而进行必要的切换布局和重新操做,android:configChanges="keyboardHidden|orientation|screenSize"或者android:configChanges="orientation|screenSize",然后在
+        Activity或View中的onConfigurationChange(Configuration newConfig) 函数中获取当前横竖屏参数if(newConfig == Configuration.ORIENTATION_PORTRAIT) //竖屏, if(newConfig == Configuration.ORIENTATION_LANDSCAPE)// 横屏,可以分别加载不同的屏幕效果,例如:setContent(R.layout.mainPortrait)||
+        或者 setContent(R.layout.landScape),当然如果界面不变情况下,可以直接对控件初始化和数据填充,需要注意,在onConfigurationChanged函数中只能获取到横竖屏切换后的参数,在该函数中获取不到新的Layout和控件的尺寸位置信息,如果要处理尺寸和位置信息,必须要通过消息异步或者延迟调用</string>
+        <string name="activityScreenChangeLife2_1"></string>
+        <string name="activity_start_model_is_what">任务是用户在执行某项工作时与之交互的一系列活动,这些活动排列在一个堆栈中 - 后台堆栈） - 按每个活动的打开顺序排列,当前活动开始另一个时，新活动被推到堆栈的顶部并且获得焦点。先前的活动保留在堆栈中，但已停止。当活动停止时，系统保留其用户界面的当前状态。
+            当用户按下" 后退" 按钮时,当前活动从堆栈顶部弹出（活动被销毁）,并恢复前一活动（恢复其UI的以前状态）.堆栈中的活动不会重新排列,只能从堆栈推送并弹出 - 在当前活动启动时推送到堆栈,并在用户使用Back时离开堆栈时弹出按钮.后堆栈作为"后进先出"对象结构运行.</string>
+        <string name="activity_start_model_standard" >standard：标准模式。每次启动一个 Activity 都会重新创建一个新的实例。不管这个实例是否已经存在。被创建的实例的生命周期符合典型情况下 Activity 的生命周期。它的 onCreate、onStart、onResume都会被调用，这是个典型的多实例多实现。一个任务栈中可以有多个相同的实例。
+            每个实例也可以属于不同的任务栈。在这种的模式下。谁启动了这个 Activity,那么这个 Activity 就运行在启动它的那个 Activity 所在的栈中。注意：当我们用 ApplicationContext 去启动 standard 模式的 Activity 的时候会报错。这是因为 standard 模式的 Activity 默认会进入启动它的 Activity 所属的任务栈中。
+            但是由于非 Activity 类型的 Context（如 ApplicationContext） 并没有所谓的任务栈，所以就有问题了。解决这个问题的方法是为待启动 Activity 指定 FLAY_ACTIVITY_NEW_TASK 标记位。这样启动的时候就会为他创建一个新的任务栈，这个时候待启动 Activity 实际上是以 singleTask 模式启动的</string>
+        <string name="activity_start_model_singleTop">singleTop:栈顶复用模式。这个模式下。如果新的 Activity 已经位置任务栈的栈顶。那么此 Activity 不会被重新创建。同时它的 onNewIntent 方法会被回调，通过此方法的参数我们可以去除当前的请求信息。需要注意:这个 Activity 的onCreate、onStart、不会被系统调用。因为他们没有被改变，如果新的 Activity 的实例已存在但不是位置栈顶。那么新的Activity 仍然会重新创建。</string>
+        <string name="activity_start_model_singleTask">singleTask:栈内复用模式。这个一种单实例模式。这个模式下，只要 Activity 在一个栈中存在，那么多次启动此 Activity 都不会重新创建实例，和 singleTop 一样，系统也会回调其 onNewIntent。具体一点。当一个具有 singleTask 模式的 Activity 请求启动后，比如 Activity A，系统首先会寻找是否存在 A 想要的任务栈，如果不存在，就会重新一个任务栈。然后创建 A 的实例后把 A 放到栈中。如果系统 A 存在所需的任务栈。这时要看 A 是否在栈中有实例存在，如果有实例存在，那么系统就会把 A 调到栈顶并调用的 onNewIntent 方法，如果实例不存在，就创建 A 的实例并把 A 压入栈中，
+        例1：目前任务栈 S1 中的情况为 ABC ，Activity D 以singleTask 模式请求启动，其所需要的任务栈为 S2， 由于 S2 和 D 的实例均不存在，所以系统会先创建任务栈 S2 然后在创建 D 的实例并将其入栈到 S2。
+        例2：另外一种情况，假设 D 所需的任务栈为 S1，其他情况如上面例子1 所示，那么由于 S1 已经存在，所以系统会直接创建 D 的实例并将其入栈到 S1。
+        例3：如果 D 所需要的任务栈为 S1 ，并且当前任务栈 S1 情况为　ADBC，根据栈内复用原则。此时 D 不会重新创建，系统会把 D 切换到栈顶并调用其 onNewIntent 方法，同事由于 singleTast 默认具有 clearTop 的效果，会导致栈内所有 D 上面的 Activity 全部出栈，于是最终 S1 中的情况为 AD,这一点比较特殊。</string>
+        <string name="activity_start_model_singleInstance" >singleInstance:单实例模式，这是一种加强的 singleTask模式，他除了具有 singleTast模式的所有特性之外。还加强了一点。那就是具有此种模式的 Activity 只能单独的位于一个任务栈中，比如 Activity A 是 singleInstance 模式，当 A 启动后，系统会为他创建一个新的任务栈，然后 A 独自在这个心的任务栈中，由于栈内复用的特性。后续的请求均不会创建新的 Activity,除非这个独特的任务栈被系统销毁了。</string>
+        <string name="activity_intent1" > Intent 是 Android 中各组件之间进行交互的一种重要的方式，他不仅可以指明当前组件想要执行的动作。还可以在不同组件之间传递数据.Intent 一般可被用于启动活动、启动服务、以及发送广播等场景。Intent 的用法大致可以分为两种，显示 Intent 和 隐式 Intent,
+        Intent 有很多个构造函数的重载，其中一个是 Intent (Context packageContext, Class ? cls ). 这个构造函数接收两个参数，第一个参数 Context 要求提供一个启动活动的上下文，第二个参数 Class 则是指定想要怎么启动目标活动，通过这个构造函数可以检出 Intent 的" 意图 "。 然后我们应该怎么使用？Activity 类中提供了一个 startActivity(0 方法，这个方法专门用于启动活动的，他接受一个 Intent 参数就可以。</string>
+        <string name="activity_intent2" >隐式意图:相比较于显示 Intent, 隐式 Intent 则含蓄了许多，他并不明确指出我们想要启动哪一个活动，而是制定了一系列更为抽象的 action 和 category 等信息，然后交由系统去分析这个 Intent,并帮我们找出合适的活动去启动。</string>
+        <string name="activity_date">第一种：Intent 通过 putExtra传递，通过 getStringExtra 获取，第二种：startActivityForResult 传递数据，返回数据 通过 onActivityResult 返回状态内容信息也通过 Intent getStringExtra 接收</string>
+
+    <!--广播-->
+        <string name="broadCastReceiverIsWhat">BroadcastReceiver翻译为广播接收者，Broadcast是一种广泛运用在应用程序之间的传输信息的机制，简单的可以理解为传统意义上的电台广播，通俗一点，发布失物招领。广播机制是一个典型的发布—订阅模式，也就是我们所说的观察者模式。广播最大的特点就是发送方并不关心接收方是否接到数据，也不关心接收方是如何处理数据的，通过这样的形式来达到接、收双方的完全解耦合</string>
+        <string name="registerBroadCastReceiver" >
+            创建广播
+                创建广播非常简单，只要继承BroadcastReceiver并实现onReceive()方法\n\n
+            注册广播
+                1.通过manifests配置 receiver  android:name=".BroadcastReceiver.MyBroadcastReceiver" intent-filter action android:name="com.haopz.xxxx"  /intent-filter /receiver   这里需要加入intent-filter的action中的name属性，表示我们监听的内容。当有广播发送时，需要判断该广播是否和我们监听的内容一致，如果一致则接收.
+                2.通过代码动态配置//创建广播    MyBroadcastReceiver receiver = new MyBroadcastReceiver();    //注册广播 registerReceiver(receiver,new IntentFilter("com.handsome.hensen")); 根据广播的证明周期,在Activity的onDestroy的时候取消  unregisterReceiver(receiver);
+        </string>
+        <string name="sendBroadCastReceiver">发送标准无序广播：通过 Intent intent = new Intent("com.haopz.xxxx"); sendBroadCast(intent);
+            发送有序广播：Context.sendOrderedBroadcast()来发送，所有的广播接收器优先级依次执行，广播接收器的优先级通过receiver的intent-filter中的android:priority属性来设置，数值越大优先级越高。
+            \n  当广播接收器接收到广播后，可以使用setResult()函数来结果传给下一个广播接收器接收，然后通过getResult()函数来取得上个广播接收器接收返回的结果。
+            \n  当广播接收器接收到广播后，也可以用abortBroadcast()函数来让系统拦截下来该广播，并将该广播丢弃，使该广播不再传送到别的广播接收器接收,
+            \n  有序广播的注册方式是一样的,区别在于 priority 属性，确定了他们的优先级
+            发送广播要使用 sendOrderedBroadCast(intent,null) 发送有序广播  要注意的是：这里需要发送的是有序广播，否则在接收者中通过setResult()和getResult()方法会报错，因为只有有序广播才能传递结果</string>
+        <string name="abortBroadCast">拦截广播：有序广播中可以拦截广播，执行abortBroadcast()方法，广播就不会继续往下传递了。
+                终结广播：应用场景    如果这个时候我们需要一个不管有没有被拦截都必须执行的广播，我们称为终结广播，那应该怎么办。同样的，发送有序广播也考虑到这一点，通过以下代码来发送广播，并指定我们不管有没有被拦截都必须执行的终结广播， sendOrderedBroadCast(intent, null, 最终广播，new Handler(), 0 , null , null )</string>
+        <string name="localBroadCast">本地广播：在API21的Support v4包中新增本地广播，也就是LocalBroadcastManager。由于之前的广播都是全局的，所有应用程序都可以接收到，这样就会带来安全隐患，所以我们使用LocalBroadcastManager只发送给自己应用内的信息广播，限制在进程内使用。  它的用法很简单，只需要把调用context的sendBroadcast、registerReceiver、unregisterReceiver的地方换为LocalBroadcastManager.getInstance(Context context)中对应的函数即可。LocalBroadCastReceiver.getInstance(this).sendBroadCast || .registerReceiver()</string>
+        <string name="systemBroadCast">系统广播：系统中也会有很多自带的广播，当符合一定条件时，系统会发送一些定义好的广播，比如：重启、充电、来电电话等等。我们可以通过action属性来监听我们的系统广播，
+            常用的广播action属性有\n
+            屏幕被关闭之后的广播：Intent.ACTION_SCREEN_OFF\n
+            屏幕被打开之后的广播：Intent.ACTION_SCREEN_ON\n
+            充电状态，或者电池的电量发生变化：Intent.ACTION_BATTERY_CHANGED\n
+            关闭或打开飞行模式时的广播：Intent.ACTION_AIRPLANE_MODE_CHANGED\n
+            表示电池电量低：Intent.ACTION_BATTERY_LOW\n
+            表示电池电量充足，即电池电量饱满时会发出广播：Intent.ACTION_BATTERY_OKAY\n
+            按下照相时的拍照按键(硬件按键)时发出的广播：Intent.ACTION_CAMERA_BUTTON\n
+         </string>
+
+    <!--service-->
+        <string name="serviceIsWhat">Service(服务)是一个一种可以在后台执行长时间运行操作而没有用户界面的应用组件。服务可由其他应用组件启动（如Activity），服务一旦被启动将在后台一直运行，即使启动服务的组件（Activity）已销毁也不受影响。 此外，组件可以绑定到服务，以与之进行交互，甚至是执行进程间通信 (IPC)。 例如，服务可以处理网络事务、播放音乐，执行文件 I/O 或与内容提供程序交互，而所有这一切均可在后台进行.</string>
+        <string name="startService">Service 创建：自定义类集成 Service, Service 中唯一一个必须重写的方法 onBind(), 重写 onCreate(); onStartCommand(); onDestroy(); onCreate 和 onStartCommand 区别：startService(); 在第一次调用会 onCreate --> onStartCommand, 多次点击只走 onStartCommand() 方法\n\n
+        一.Activity 控制 Service 角度 --> 开始：startService(startIntent) 停止：stopService(stopIntent); 或者Service 自己停止 stopSelf();\n\n
+        二.bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE); \n
+            绑定1. 在MyService 创建内部类 MyBinder , MyBinder extends Binder，创建 MyBinder 对象并在 onBind 中返回自己的 IBander 对象。\n
+                2. 在Activity 中 调用bindService 方法，参数一是意图对象，参数二:是一个 ServiceConnection 服务连接对象，new 一个对象，重写俩个方法(onServiceConnected() 服务链接 和 onServiceDisConnected() 服务断开方法)，在 onServiceConnected方法的参数中将 IBander 强转成我们自己的 子类对象，使用子类对象里面的方法，\n
+                3. 解绑：unBindService(serviceConnection) \n
+                好处：使用 bindService 方式，这个服务在整个程序中都是通用的，也就是说 MyService 不仅可以和 MainActiviy 绑定，还可以和其他多个Activity 同时绑定，并获取到相同的 MyService.MyBinder 对象</string>
+        <string name="serviceLife" >startService启动方式：onCreate --> onStartCommand() --> onDestory ，多次调用不会调用 onCreate，onCreate只会调用一次，onStartCommand会走多次，在stopService 时仅一次就可以停止Service \n\n
+            BindService 启动方式：注意 bindService 是 Context 里面方法。如果 Service还没有创建 context.bindService()  ——> onCreate()  ——> onBind()  ——> Service running  ——> onUnbind()  ——> onDestroy()  ——> Service stop 如果对一个 Service 进行 startService 和 bindService 启动，必须同时对俩种方式同时不满足，Service 才能销毁，同时调用 unBinderService 和 stopService 方法，onDestory() 才能执行
+        </string>
+        <string name="serviceTongXin"><![CDATA[活动和服务进行通信 -->使用 bindService 方式进行通信]]></string>
+        <string name="intentService">特点是：不需要控制 Service 关闭，IntentService 在自身内容运行完成后自动销毁 Service</string>
+        <string name="startlook">点击查看</string>
+        <string name="serviceManiFestProperty">https://blog.csdn.net/blue_it/article/details/52035804</string>
+
+        <!--CcontentProvider-->
+        <string name="contentProviderIsWhat" >定义:内容提供者，Android 四大组件之一;
+            作用:允许一个程序访问另一个程序中数据，并保证数据的安全性。1.同进程间数据操作；2.进程间进行数据交互 共享，即跨进程通信
+            原理: Android的bind机制
+        </string>
+        <string name="contentProviderUse1">通过Context getContentResolver() 获取到ContentResolver 对象，ContentResolver 就像数据库一样提供着 CRUD 操作，不同于数据库，ContentResolver 中的增删改查方法是通过一个 Uri 参数代替。这个Uri确定内容提供中的数据位置。
+            Uri 包含俩个部分: authority 和 path , 比如说想访问 包名为: com.haopz.app 程序中的 userSearch 表，那么该程序的 authority 就为 com.haopz.app.provider，path 就是程序中不同表的区分，那么 Uri 内容就是 com.haopz.app.provider/userSearch，我们还需要字符串的头部加上协议声明：content：//com.haopz.provider/userSearch
+
+            Uri 使用 Uri.pars("content：//com.haopz.provider/userSearch"); 解析成Uri ，通过 getProviderResolver().query(指定查询某应用某个表，查询列名，where 约束条件，where中占位符提供具体值，排列方式); 数据就会从 Cursor 对象中拿出来了。
+            修改和添加数据：ContentValues 对象 put （"表名", 数据）通过getContentResolver()  insert 和 update 修改</string>
+        <string name="contentProviderUse2">2.1 自定义MyProvider 集成 ContentProvider 重写
+            onCreate	初始化内容提供器被调用,完成对数据库创建和升级等，返回true 表示初始化成功,反之 false,注意只有ContentResolver 访问我们的数据时候，内容提供器才会被初始化
+            query 从内容提供器中查询数据
+            insert  向内容提供器添加一个条数据，使用Uri参数确定表，待添加数据保存在 values 中，返回一个用于表示新纪录的Uri
+            update  更新内容提供器已有数据，返回受影响的行数
+            delete 删除内容提供器的数据，返回受影响行数，
+            getType 根据传入内容Uri来返回相应的MIME类型
+
+            Uri 标准 content://com.haopz.app.provider/userSearch/1 这样表示为期望访问对应表id=1的数据，Uri 有这俩种表示方式。我们可以使用通配符表示这俩种内容Uri
+            *：表示匹配任意长度的任意字符
+            #: 匹配任意长度的数字
+            所以匹配任意表通配符可以写成：content://com.haopz.app.provider/userSearch/#
+            所以匹配任意表中任意一行通配符可以写成：content://com.haopz.app.provider/userSearch/*
+
+            之后借助 UriMathcher 这个类实现匹配内容Uri功能，UriMathch 提供一个 addUri方法，分别把 authority、path、和自定义代码传进去，定好规则
+
+            当调用UriMathch.match() 方法时，就可以判断期望访问的哪一张表的哪一种操作(是整表操作还是单行数据操作)。
+
+            getType(): 返回 MIME 类型，Android对三个部分做了如下规定：
+            必须以 vnd 开头；如果Uri以路径结尾，后面接 android.cursor.dir/ 如果以 id 结尾，则后接 android.cursor.item/；最后接上 vnd.authority.path。对于content://com.haopz.app.provider/userSearch/1 这个Uri，他的MIME 为：vnd.android.cursor.item/vnd.com.haopz.app.provider.userSearch
+
+            最后要到 AndroidManiFest 里面注册 provider，添加俩个属性 exported 和 enabled,允许外部程序访问
+
+            ps：具体看第一行代码</string>
+        <string name="contentProviderAndContentResolver" >统一管理不同 ContentProvider 间的操作;一般来说，一款应用要使用多个ContentProvider，若需要了解每个ContentProvider的不同实现从而再完成数据交互，操作成本高||难度大
+            所以再ContentProvider类上加多了一个 ContentResolver类对所有的ContentProvider进行统一管理</string>
+        <string name="contentProviderYouQueDian"> 安全:\n    应用间的数据交互提供了一个安全的环境：允许把自己的应用数据根据需求开放给 其他应用 进行 增、删、改、查，而不用担心因为直接开放数据库权限而带来的安全问题 \n
+        访问简单||高效：\n 对比于其他对外共享数据的方式，可以提供文件方式和SharePreferences 和 数据库 提供读写数据 ContentProvider方式，解耦了底层数据的存储方式，如果数据提供采用哪种方式，都不影响外界访问数据</string>
+
+
+
+
+
+
+    <!--Fragment-->
+        <string name="AndroidFragment">Fragment</string>
+
+    <!--持久化-->
+        <string name="AndroidStorageTechnology">AndroidStorage[存储,strong强壮]Technology[技术]</string>
+        <!--SharePreference-->
+        <string name="sharePreferenceIsWhat" >定义:轻量级键值对存储方式一\n
+            作用:使用键值对方式存储多种数据类型数据，多是用来保存用户行为；应用程序配置等\n
+            原理:XML 文件存储，SharePreference 源代码解析，点击查看原理</string>
+        <string name="sharePreferenceUse" >内部维护一个 Edit对象，通过 put 和 get 方式存储获取数据，可以通过 commit(同步) 和 apply(异步) 保存数据</string>
+        <string name="sharePreferenceYouQueDian" >
+            1. commit时有三级锁操作，效率很低，影响应用程序性能，批量修改一次提交\n
+            2. 不适合存储大数据\n
+            3. 不要频繁存储和获取内容</string>
+        <string name="sharePreferenceMianShi" >面试:commit 和 apply 区别;    sp  多进程使用 </string>
+
+        <!--File-->
+        <string name="fileIsWhat" >流数据传递，存储就是对文件的存取过程，那么当数据想要保存到文件中，是以文件为中心的‘输入流’，从文件中读取数据，也是以文件为中心的 输出流，这是数据的流向方式划分.\n
+        按照处理的单位划分：分为 字节流 和 字符流，字节流读取得都是二进制数，读取到不会做何处理，字符流也是读取二进制数据，但是会把二进制转换成为我们能识别的字符。</string>
+        <string name="FileInputStream">输入字节流  InputStream(抽象类) -> FileInputStream (实体类)；缓冲流：BufferedInputStream (输入缓冲实体类：提高输入读取文件效率，内部维护了一个8k的字节数组)
+                    \n 输入字符流  Reader -> FileReader   缓冲流： BufferReader</string>
+        <string name="FileOutputStream">输出字节流 OutputStream(抽象类) -> FileOutputStream(实体类)； 缓冲流：BufferedOutputStream (输出缓冲实体类：提高输入写入文件效率，内部维护了一个8k的字节数组， write是向内部数组存储，只有flush 或者close 才将字节数组向硬盘输出)\n
+                输出字符流 Writer -> FileWriter；缓冲流：BufferWriter </string>
+        <string name="InputStreamReader">InputStreamReader（字符转换输入流：字符转字节）\n
+                OutputStreamWriter (字符转换输出流：字符转字节)	</string>
+        <string name="FileStorageSite">1.context.getCacheDir(); 应用内部存储空间（数据文件私有）文件存储到这个路径下需要注意的是，这个文件的目录和应用的存储位置有关,\n
+            当应用被移动到外部存储设备的时候，文件的绝对路径也是变化的，所以建议当数据存储到这个目录的时候，用相对路径。\n
+            这个目录和getFilesDir()目录最大的不同在于：当安卓设备的存储空间少，或者不够用的时候，系统会自动删除这个目录下的文件 \n\n
+
+            2.context.getFilesDir();与 getCacheDir一致，系统提供的访问此路径文件的方法是：context.openFileOutput(String,int);context.openFileInput(String name);\n\n
+
+            3.context.getExternalCacheDir();External[外部]，应用外部存储空间，数据文件私有，系统媒体文件无法访问和getCacheDir()还有不同之处：\n
+            数据文件私有，系统媒体文件无法访问（例如存了一个MP3文件，通过系统的文件夹管理系统，无法找到。\n
+            只有手机系统使用的是虚拟外部存储（虚拟SD卡，现在绝大多数的手机，都不用外挂物理SD卡了）的时候，才可以在卸载应用的同时，\n
+            自动删除该目录下的文件，如果是之前的物理存储（物理SD卡）则不会自动删除该目录，及目录下的文件。\n
+            在使用的时候，需要判断外部存储的挂载状态（getExternalStorageState(File)），还需要申请读写权限（READ_EXTERNAL_STORAGE， WRITE_EXTERNAL_STORAGE）当其他应用拥有SD卡读写权限的时候，可以访问该目录下的文件\n\n
+
+            4.context.getExternalFilesDir(null);\n\n
+
+            5.Environment.getExternalStorageDirectory();应用外部存储空间（数据文件非私有，可以被手机的系统程序访问，同样，该目录下的文件，所有的APP程序也都是可以访问的，外部存储空间可能处于不可访问状态，或者已经被移除状态，或者存储空间损坏无法访问等问题。\n
+            可以通过getExternalStorageState()这个方法来判断外部存储空间的状态。官方建议，不要直接使用该目录，为了避免污染用户的根命名空间，应用私有的数据，应该放在 Context.getExternalFilesDir目录下其他的可以被分享的文件，可以放在getExternalStoragePublicDirectory(String).目录下\n\n
+
+            6.Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES); 应用外部存储空间（数据文件非私有，可以被手机的系统程序访问（如MP3格式的文件，会被手机系统检索出来），同样，该目录下的文件，所有的APP程序也都是可以访问的，）\n\n
+        </string>
+
+        <!--SQL-->
+        <string name="sqlIsWhat" >SQLIte 是一个款轻量级关系型数据库，运算速度快，占用资源少。</string>
+        <string name="sqlIsCreate" >Android有一个SQLiteOpenHelper 帮助类(以下简称 helper)， helper 是一个抽象类，需要参加类来继承，重写 onCreate() 和 onUpgrade() 方法,俩个方法分别是处理创建数据库和升级数据库逻辑，\n
+            helper 有俩个构造，参一上下文，参二helper名字，参三：返回我们查询数据返回的自定义cursor,一般null，参四：helper 版本号，升级用来增加版本号。\n
+            创建helper 对象后，通过 getReadableDatabase() 和 getWritableDatabase() 获取到 SQLiteDatabase 对象，数据库村方在 /data/data/packageName/databases/下，这个时候会检测是否存在对应的数据库，如果没有对应的数据库，那么onCreate是执行，反之，不再执行onCreate。\n
+            onCreate 常用来创建表数据内容，db.execSQL("sql 语句");\n</string>
+
+        <string name="SqlUpdate">当我们升级数据库时候，在helper 对象参数传入 2 即可，表示升级数据库，在 onUpgrade() 方法中创建新表。</string>
+        <string name="SQL_CRUD">CRUD ， R Retrieve ,根据 helper 对象，getWritetableDatabase();\n
+            增加： writableDatabase("表名", null, contentValue);\n
+            修改： db.update();\n
+            删除： db.delete();\n
+            查看： db.query(); 返回 Cursor，使用完成关闭\n</string>
+
+    <!--Version diff 版本间差异-->
+        <string name="AndroidVersionDiff">Android 版本间差异</string>
+        <string name="AndroidVersionKitkat" >推出 ART 运行时，但是 Dalvik 还是主角</string>
+        <string name="AndroidVserionLOLLIPOP1">Material Design</string>
+        <string name="AndroidVserionLOLLIPOP2">性能为中心：Android 在新的 ART 运行时上独占运行，也即是说 ART 正是替代 Dalvik</string>
+        <string name="AndroidVserionLOLLIPOP3" >通知：更醒目、更便于访问并且可配置度高</string>
+        <string name="AndroidVserionM1">运行时权限 Permission</string>
+        <string name="AndroidVserionM2">低电耗模式和应用待机模式</string>
+        <string name="AndroidVserionN1">FileProvider</string>
+        <string name="androidVersionN2">多屏幕支持(分屏模式)</string>
+        <string name="androidVersionN3">Quick Settings 手机通过下拉设置各种状态设置 </string>
+        <string name="androidVersionN4">随时随地低电耗模式：仅仅要屏幕关闭了一段时间。且设备未插入电源，低电耗模式就会相应用使用熟悉的 CPU 和网络限制。这意味着用户即使将设备放入口袋里也能够省电。</string>
+        <string name="AndroidVersiono1"><![CDATA[后台应用中的输入和数据隐私, 应用程序在后台运行，将不能访问麦克风或摄像头&连续报告的传感器将不再回传数据&使用发送变化时传感器也不会接受事件，如果想要在8.0检测传感器事件。请使用前台服务]]></string>
+        <string name="AndroidVersiono2">强制执行 FLAG_ACTIVITY_NEW_TASK 要求，在 Android P 中，您不能从非 Activity 环境中启动 Activity，除非您传递 Intent 标志 FLAG_ACTIVITY_NEW_TASK。 如果您尝试在不传递此标志的情况下启动 Activity，则该 Activity 不会启动，系统会在日志中输出一则消息。注：在 Android N 之前，标志要求一直是期望的行为并被强制执行。 Android N 中的一个错误会临时阻止实施标志要求</string>
+    <string name="base_knowledge_version_diff" />
+    <string name="androidPermissionIsWhat">许多App在以前申请使用权限时候，不管App会不会用到，直接一通获取到，这样就轻松拿到的了用户个人信息，其次是在使用上，用户体验也不好，App安装页面使用权限一看好多一个屏幕都放不下。在 Android 6.0时候，Google妈妈就想到了这个问题，对权限开始划分，一种是非必须用户明确的权限，例如 访问网络权限，直接在 ManiFest里直接申请就可以了。还有一种是必须由用户确认的权限，例如 打电话、查看手机通讯录、短信、和访问手机相册和相机等功能，都是需要动态申请让用户确认的权限。</string>
+    <string name="androidPermissionUse">以打电话为例子：控件触发打电话按钮： 第一步先判断是否具备了打电话权限，如果已经具备该权限，就直接打电话，ContextCompat.checkSelfPermission(上下文, permissionArray[0]) != PackageManager.PERMISSION_GRANTED） 第二步：户没有权限，ActivityCompat.requestPermissions(上下文, 权限, 权限请求唯一码); 第三步：重写 onRequestPermissionsResult 方法，根据唯一码判断权限，接着判断权限是否申请成功，</string>
+    <string name="androidPermissionUtils">EasyPermission || PermissionGen  自定义HaopzPermissionUtils, 暂时放在 HaoPzProject 项目haopz6.0permissionutils module 中 </string>
+    <string name="androidFileProviderIsWhat">是ContentProvider 的一个特殊子类
+权限更改：系统权限更改，提高私有文件的安全性，私有目录被限制访问，可防止私有文件的元数据泄漏。在以前版本中，传递数据间使用 file://uri 方式，尝试使用 file://uri 会触发 FileUriExposedException，7.0 之后Google 推荐使用的方式是：FileProvider</string>
+    <string name="androidFileProviderUse1">1. 定义一个FileProvider，在ManiFest 里面注册相关信息\n
+        <!--name：provider的类名--><!--authorities：没有特定要求，自定义--> <!--exported：不建议设置未true-->
+        provider\n
+            name="android.support.v4.content.FileProvider"\n
+            authorities="com.haopz.haopz70fileprovider.fileprovider"\n
+            exported="false"\n
+            grantUriPermissions="true"  <!--允许你有给其赋予临时访问权限的权力-->\n
+
+            meta-data\n
+                name="android.support.FILE_PROVIDER_PATHS"\n
+                resource="@xml/file_paths"\n
+        provider
+    </string>
+    <string name="androidFileProviderUse2">2. 指定可用文件\n
+    FileProvider只能为您事先指定的目录中的文件生成内容URI。要指定目录，请使用元素的子元素在XML中指定其存储区域和路径path。例如，以下paths元素告诉FileProvider您打算为images/私有文件区域的子目录请求内容URI 。\n
+    该paths元素必须包含一个或多个以下子元素：\n
+    <files-path name = " name " path = " path " />   代表files/应用内部存储区域的子目录中的文件。该子目录Context.getFilesDir()。\n
+    <cache-path name =" name " path =" path "/>    代表应用内部存储区的缓存子目录中的文件。此子目录的根路径与返回的值相同getCacheDir()。\n
+    <external-path name = " name " path = " path " />   Environment.getExternalStorageDirectory()。\n
+    <external-files-path name = " name " path = " path " />  Context#getExternalFilesDir(String) Context.getExternalFilesDir(null)\n
+    <external-cache-path name = " name " path = " path " />   代表应用外部缓存区域根目录中的文件。此子目录的根路径与返回的值相同 Context.getExternalCacheDir()。\n
+    <external-media-path name = " name " path = " path " />   Context.getExternalMediaDirs()。\n
+    
+    此目录仅适用于API 21+设备。\n
+    
+    这些子元素都使用相同的属性：\n
+    
+    name="name" 是对外查看path 路径的别名，为了强制执行安全性，此值将隐藏您要共享的子目录的名称。该值的子目录名称包含在该 path属性中。\n
+    path="path"  你正在分享的子目录。虽然该name属性是一个URI路径段，但该path值是实际的子目录名称。该值是指一个子目录，而不是单个文件或文件。无法通过文件名共享单个文件，也无法使用通配符指定文件的子集。\n
+    将 meta-data 元素添加为 provider 定义FileProvider 的元素的子元素。将 meta-data 元素的"android：name"属性设置为 android.support.FILE_PROVIDER_PATHS。将元素的"android：resource"属性设置为@xml/file_paths\n
+    </string>
+    <string name="androidFileProviderUse3">3. 为文件生成内容URI\n
+        要使用内容URI与另一个应用程序共享文件，您的应用程序必须生成内容URI。生成内容URI，创建一个新File的文件，然后传递File 到getUriForFile()。您可以将内容URI返回getUriForFile()到另一个应用程序中 Intent。接收内容URI的客户端应用程序可以通过调用ContentResolver.openFileDescriptor来打开文件并访问其内容 ParcelFileDescriptor。 例如，假设您的应用程序使用具有权限的FileProvider将文件提供给其他应用程序com.mydomain.fileprovider。要default_image.jpg在images/内部存储的子目录中获取文件的内容URI</string>
+    <string name="androidFileProviderExample" >file_path 文件里面 files-path name="testname" path="images" \n
+        File photoFile = new File(Context.getFileDir() + "/images/" + photoname+".png");\n
+        在指定存放地址时候一定要加上对应 Context.getFileDir() + "/images/" + photoname.png，并且在获取到 File 时候，应该先判断 File 是否存在，\n
+
+        以打开照相机为例：\n
+        File file1 = new File(getCacheDir()+ "/images/" + "linshi.png");\n
+        if (!file1.getParentFile().exists()) {\n
+            file1.getParentFile().mkdir();\n
+        }\n
+        Uri uriForFile = FileProvider.getUriForFile(MainActivity.this, "com.haopz.haopz70fileprovider.fileprovider", file1);\n
+        intentShoot.putExtra(MediaStore.EXTRA_OUTPUT, uriForFile);\n
+    </string>
+
+
+</resources>
