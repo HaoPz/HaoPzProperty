@@ -5,12 +5,14 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -22,7 +24,7 @@ import android.widget.TextView;
 public class TanXingHead extends ScrollView {
 
     private final float scrollNumber = 0.5f;
-    private boolean isCanScroll = false;
+    private boolean isCanHeadScroll = false;
 
     /**
      * ScrollView 里面只有一个Children，
@@ -39,6 +41,13 @@ public class TanXingHead extends ScrollView {
      */
     private View contentView;
     private ObjectAnimator objectAnimator;
+    private float realDetalY;
+
+    // 用于记录正常的布局位置
+    private Rect originalRect = new Rect();
+
+    float downY = 0;
+    float moveY = 0;
 
     public TanXingHead(Context context) {
         this(context, null);
@@ -60,9 +69,15 @@ public class TanXingHead extends ScrollView {
         }
     }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (contentView == null) {
+            return;
+        }
+        originalRect.set(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
+    }
 
-    float downY = 0;
-    float moveY = 0;
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
@@ -70,50 +85,59 @@ public class TanXingHead extends ScrollView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 downY = ev.getY();
+                Log.i("tianxianHeadDown", "getScrollY:" + getScrollY());
+                if (getScrollY() == originalRect.top) {
+                    isCanHeadScroll = true;
+                } else {
+                    isCanHeadScroll = false;
+                }
                 break;
 
             case MotionEvent.ACTION_MOVE:
                 moveY = ev.getY();
                 float detalY = moveY - downY; // 移动距离
-                if (moveY >= downY) { // 向下移动
-                    isCanScroll = true;
+                Log.i("tianxingHead", "     downY:" + downY + " moveRawY:" + moveY + "  detalY:" + detalY);
+                if (moveY >= downY) { // 向下移动 同时满足
 
-                    float realDetalY = scrollNumber * detalY;
+                    realDetalY = scrollNumber * detalY;
 
-//                    if(objectAnimator != null && objectAnimator.isRunning()){
-                        Log.i("tianxingHead", "     downY:" + downY + " moveRawY:" + moveY + "  detalY:" + detalY);
-                        contentView.layout(getLeft(), ((int) (getTop() + realDetalY)), getRight(), ((int) (getHeight() + getTop() + realDetalY)));
-                        Log.i("tianxingHeadlayou",
-                                "  left:" + getLeft() +
-                                        "  top:" + (getTop() + realDetalY) +
-                                        "  right:" + getRight() +
-                                        "  bottom:" + ((int) (getHeight() + getTop() + realDetalY)));
-//                    }
+                    if (isCanHeadScroll) {
+                        contentView.layout(getLeft(),
+                                ((int) (getTop() + realDetalY)),
+                                getRight(),
+                                ((int) (getHeight() + getTop() + realDetalY)));
+                    }
 
+                } else {
+                    // 向上滑动
+                    Log.i("tianxiaHeadMove", "向上滑动" + getScrollY());
+                    isCanHeadScroll = false;
                 }
                 break;
 
             case MotionEvent.ACTION_UP:
-                Log.i("tianxingHeadlayou", "isCanScroll:" + isCanScroll);
-                if (isCanScroll) {
-                    objectAnimator = ObjectAnimator.ofFloat(contentView, "translationY", -contentView.getTop());
-                    objectAnimator.setDuration(300);
-                    objectAnimator.start();
+                if (isCanHeadScroll) {
+                    TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, contentView.getTop(), originalRect.top);
+                    translateAnimation.setDuration(500);
+                    translateAnimation.setFillAfter(true);
+                    contentView.startAnimation(translateAnimation);
+                    contentView.layout(originalRect.left, originalRect.top, originalRect.right, originalRect.bottom);
 
-                    // contentView.layout(contentView.getLeft(),contentView.getTop(),contentView.getRight(),contentView.getBottom());
+                    // 在duration 时间内向下平移 contentView.getTop 距离,瞬时完成 originalRect.top 位置
+//                    objectAnimator = ObjectAnimator.ofFloat(contentView, "translationY", contentView.getTop(), originalRect.top);
+//                    objectAnimator = ObjectAnimator.ofFloat(contentView, "translationY", originalRect.top); // 过了duration时间，瞬间完成
+//                    objectAnimator.setDuration(5000);
+//                    objectAnimator.start();
 //                    objectAnimator.addListener(new AnimatorListenerAdapter() {
-//                        @Override
-//                        public void onAnimationStart(Animator animation) {
-//                            super.onAnimationStart(animation);
-//                            isCanScroll = false;
-//                        }
-//
 //                        @Override
 //                        public void onAnimationEnd(Animator animation) {
 //                            super.onAnimationEnd(animation);
-//                            isCanScroll = true;
+//                            contentView.layout(originalRect.left, originalRect.top, originalRect.right, originalRect.bottom);
 //                        }
 //                    });
+
+                } else {
+                    Log.i("tianxiaHeadUp", "向上滑动结束，手指抬起" + contentView.getTop());
                 }
                 break;
         }
