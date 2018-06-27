@@ -98,6 +98,7 @@
         <activity android:name=".Base.UIActivity.TanXingHeadActivity" />
         <activity android:name=".Base.UIActivity.PhotoChooosePickerActivity" />
         <activity android:name=".Base.UIActivity.PhotoChooosePickerSolveOOMActivity" />
+        <activity android:name=".Base.UIActivity.UIStickyHeadActivity" />
 
         <!--Android 基础学习-->
 
