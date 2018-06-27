@@ -11,4 +11,10 @@
     <include layout="@layout/view_text"
         android:id="@+id/item_tan_xing_head"/>
 
+    <include layout="@layout/view_text"
+        android:id="@+id/photo_choose_picker"/>
+
+    <include layout="@layout/view_text"
+        android:id="@+id/photo_choose_picker2"/>
+
 </LinearLayout>

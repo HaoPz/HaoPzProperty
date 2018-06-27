@@ -94,8 +94,10 @@
 
 
         <!-- UI 界面 -->
-        <activity android:name=".Base.UIActivity.UIBaseActivity"/>
-        <activity android:name=".Base.UIActivity.TanXingHeadActivity"/>
+        <activity android:name=".Base.UIActivity.UIBaseActivity" />
+        <activity android:name=".Base.UIActivity.TanXingHeadActivity" />
+        <activity android:name=".Base.UIActivity.PhotoChooosePickerActivity" />
+        <activity android:name=".Base.UIActivity.PhotoChooosePickerSolveOOMActivity" />
 
         <!--Android 基础学习-->
 

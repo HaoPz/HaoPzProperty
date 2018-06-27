@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="未完成: 记住HorizontalScrollView 不会回收内部View，这种样式就抛弃了，选择的多样性,选择 RecyclerView 都可以。"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
+
+        <ImageView
+            android:id="@+id/photoChooseSolveIv"
+            android:layout_width="225dp"
+            android:layout_height="400dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"></ImageView>
+
+    </RelativeLayout>
+
+
+    <HorizontalScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.28"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:id="@+id/photoChooseSolveLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
+    </HorizontalScrollView>
+
+
+</LinearLayout>
