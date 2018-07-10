@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/uiItemStickyHead"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/uiItemStickyHeadTv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#5677fc"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimen14"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/uiItemStickyTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/uiItemStickyConTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/uiItemStickyTimeTv"
+            android:gravity="center_vertical"
+            android:padding="10dp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -20,4 +20,7 @@
     <include layout="@layout/view_text"
         android:id="@+id/sticky_header1"/>
 
+    <include layout="@layout/view_text"
+        android:id="@+id/dialog_fragment_demo"/>
+
 </LinearLayout>

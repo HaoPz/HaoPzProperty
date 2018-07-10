@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.mydemo.Base.Base2Activity;
 import com.mydemo.R;
+import com.mydemo.StickyHeadActivity.StickyHeadActivity;
 
 /**
  * Created by HaoPz on 2018/6/25.
@@ -19,6 +20,9 @@ public class UIBaseActivity extends Base2Activity {
     private TextView item_tan_xing_head;
     private TextView photo_choose_picker;
     private TextView photo_choose_picker2;
+
+    private TextView sticky_header1;
+    private TextView dialog_fragment_demo;
 
     @Override
     public void setDate() {
@@ -45,6 +49,22 @@ public class UIBaseActivity extends Base2Activity {
                 startActivity(goPhotoChoosePicker);
             }
         });
+
+        sticky_header1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goPhotoChoosePicker = new Intent(UIBaseActivity.this, UIStickyHeadActivity.class);
+                startActivity(goPhotoChoosePicker);
+            }
+        });
+
+        dialog_fragment_demo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goDialogFragmentActivity = new Intent(UIBaseActivity.this, DialogFragmentActivity.class);
+                startActivity(goDialogFragmentActivity);
+            }
+        });
     }
 
     @Override
@@ -60,6 +80,12 @@ public class UIBaseActivity extends Base2Activity {
 
         photo_choose_picker2 = (TextView) contentView.findViewById(R.id.photo_choose_picker2);
         photo_choose_picker2.setText("自定义 horizontalscrollview 防止OOM");
+
+        sticky_header1 = (TextView) contentView.findViewById(R.id.sticky_header1);
+        sticky_header1.setText("列表粘性头布局方式一:滑动监听");
+
+        dialog_fragment_demo = (TextView) contentView.findViewById(R.id.dialog_fragment_demo);
+        dialog_fragment_demo.setText("DialogFragment Demo");
     }
 
     @Override
