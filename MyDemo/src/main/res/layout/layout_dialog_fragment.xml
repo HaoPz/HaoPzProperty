@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/dialogFragmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_286101"
+        android:padding="10dp"
+        android:text="Title"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimen16" />
+
+    <TextView
+        android:padding="10dp"
+        android:id="@+id/dialogFragmentContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialogFragmentTitle"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/color_286101"
+        android:textColor="@color/colorWhite" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialogFragmentContent"
+        android:layout_marginTop="0.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:background="@color/color_286101"
+            android:id="@+id/dialogFragmentCancle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="取消"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:background="@color/color_286101"
+            android:id="@+id/dialogFragmentSure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="确认"
+            android:textColor="@color/colorWhite" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
