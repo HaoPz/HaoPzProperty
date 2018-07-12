@@ -175,8 +175,17 @@ public class MyHorizontalScrollView extends ViewGroup {
             case MotionEvent.ACTION_MOVE:
                 int detalX = x - lastX;
                 scrollBy(-detalX, 0);
-                Log.i("-->", "自己处理横向滑动效果:-detalX:" + (-detalX) + "  x:" + x + "" +
-                        "   lastX:" + lastX);
+
+                velocityTracker.computeCurrentVelocity(1000);// 规定时间内移动的像素点
+                float xVelocity = velocityTracker.getXVelocity();
+                Log.i("-->","xVelocity:"+ String.valueOf(xVelocity));
+                if (Math.abs(xVelocity) > 300) { // 300 px 
+                    if (xVelocity > 0) { // 大于零 向左滑动
+                        childIndex--;
+                    } else {
+                        childIndex++;
+                    }
+                }
                 break;
             case MotionEvent.ACTION_UP:
                 // 滑动 1/2 要自动切换，不到1/2 返回原状态
@@ -187,9 +196,10 @@ public class MyHorizontalScrollView extends ViewGroup {
                     } else {
                         childIndex--;
                     }
-                } else {
-                    velocityTracker.computeCurrentVelocity(1000);
+                } else { // invaild, 应该放在 Move 事件中
+                    velocityTracker.computeCurrentVelocity(1000);// 规定时间内移动的像素点
                     float xVelocity = velocityTracker.getXVelocity();
+                    Log.i("-->","xVelocity:"+ String.valueOf(xVelocity));
                     if (Math.abs(xVelocity) > 50) {
                         if (xVelocity > 0) { // 大于零 向左滑动
                             childIndex--;
@@ -199,26 +209,26 @@ public class MyHorizontalScrollView extends ViewGroup {
                     }
                 }
 
-                Log.i("-->", String.valueOf(childIndex));
                 childIndex = childIndex < 0 ? 0 :
                         (childIndex > getChildCount() - 1 ? getChildCount() - 1 : childIndex);
 
                 smoothScrollTo(childIndex * childWidth, 0); // 指定移动到哪个位置
 
-                velocityTracker.clear();
-                velocityTracker.recycle();
-                velocityTracker = null;
+                if(velocityTracker != null){
+                    velocityTracker.clear();
+                    velocityTracker.recycle();
+                    velocityTracker = null;
+                }
                 break;
 
         }
 
         lastX = x;
         lastY = y;
-        return super.onTouchEvent(event);
+        return true;
     }
 
     private void smoothScrollTo(int i, int i1) {
-        Log.i("-->", "准备滑动");
         scroller.startScroll(getScrollX(), getScrollY(), i - getScrollX(), 0 - i1, 1000);
         invalidate();
     }
