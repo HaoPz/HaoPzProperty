@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.mydemo.Base.Base2Activity;
 import com.mydemo.R;
-import com.mydemo.StickyHeadActivity.StickyHeadActivity;
 
 /**
  * Created by HaoPz on 2018/6/25.
@@ -23,6 +22,7 @@ public class UIBaseActivity extends Base2Activity {
 
     private TextView sticky_header1;
     private TextView dialog_fragment_demo;
+    private TextView diy_viewgroup;
 
     @Override
     public void setDate() {
@@ -65,6 +65,14 @@ public class UIBaseActivity extends Base2Activity {
                 startActivity(goDialogFragmentActivity);
             }
         });
+
+        diy_viewgroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goDialogFragmentActivity = new Intent(UIBaseActivity.this, MyHorizontalScrollViewActivity.class);
+                startActivity(goDialogFragmentActivity);
+            }
+        });
     }
 
     @Override
@@ -86,6 +94,9 @@ public class UIBaseActivity extends Base2Activity {
 
         dialog_fragment_demo = (TextView) contentView.findViewById(R.id.dialog_fragment_demo);
         dialog_fragment_demo.setText("DialogFragment Demo");
+
+        diy_viewgroup = (TextView) contentView.findViewById(R.id.diy_viewgroup);
+        diy_viewgroup.setText("横向滑动的ViewGroup,包含子View滑动");
     }
 
     @Override
