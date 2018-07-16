@@ -102,6 +102,9 @@
         <activity android:name=".Base.UIActivity.DialogFragmentActivity"/>
         <activity android:name=".Base.UIActivity.MyHorizontalScrollViewActivity"/>
 
+        <!--多线程学习-->
+        <activity android:name=".Base.MuchThread.MuchThreadActivity"/> <!-- base -->
+
         <!--Android 基础学习-->
 
 

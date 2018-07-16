@@ -197,16 +197,16 @@ public class MyHorizontalScrollView extends ViewGroup {
                         childIndex--;
                     }
                 } else { // invaild, 应该放在 Move 事件中
-                    velocityTracker.computeCurrentVelocity(1000);// 规定时间内移动的像素点
-                    float xVelocity = velocityTracker.getXVelocity();
-                    Log.i("-->","xVelocity:"+ String.valueOf(xVelocity));
-                    if (Math.abs(xVelocity) > 50) {
-                        if (xVelocity > 0) { // 大于零 向左滑动
-                            childIndex--;
-                        } else {
-                            childIndex++;
-                        }
-                    }
+//                    velocityTracker.computeCurrentVelocity(1000);// 规定时间内移动的像素点
+//                    float xVelocity = velocityTracker.getXVelocity();
+//                    Log.i("-->","xVelocity:"+ String.valueOf(xVelocity));
+//                    if (Math.abs(xVelocity) > 50) {
+//                        if (xVelocity > 0) { // 大于零 向左滑动
+//                            childIndex--;
+//                        } else {
+//                            childIndex++;
+//                        }
+//                    }
                 }
 
                 childIndex = childIndex < 0 ? 0 :

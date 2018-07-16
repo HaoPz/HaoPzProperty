@@ -6,12 +6,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mydemo.Base.BaseKnowLedgeList.BaseKnowLedgeListActivity;
+import com.mydemo.Base.MuchThread.MuchThreadActivity;
 import com.mydemo.Base.UIActivity.UIBaseActivity;
 import com.mydemo.R;
 
 public class MainActivity2 extends Base2Activity {
     private TextView baseKnowledgeText;
     private TextView baseKnowledgeText1;
+    private TextView baseKnowledgeText2;
     private TextView toolBarTextView;
 
     @Override
@@ -28,6 +30,12 @@ public class MainActivity2 extends Base2Activity {
                 gotoActivity(UIBaseActivity.class);
             }
         });
+        baseKnowledgeText2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoActivity(MuchThreadActivity.class);
+            }
+        });
     }
 
     @Override
@@ -40,6 +48,9 @@ public class MainActivity2 extends Base2Activity {
 
         baseKnowledgeText1 = (TextView) findViewById(R.id.item_text1);
         baseKnowledgeText1.setText("UI效果");
+
+        baseKnowledgeText2 = (TextView) findViewById(R.id.item_text2);
+        baseKnowledgeText2.setText("多线程");
     }
 
     @Override

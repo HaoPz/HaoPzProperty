@@ -11,10 +11,4 @@
 
     <include layout="@layout/view_text"
         android:id="@+id/item_text"/>
-
-    <include layout="@layout/view_text"
-        android:id="@+id/item_text1"/>
-
-    <include layout="@layout/view_text"
-        android:id="@+id/item_text2"/>
 </LinearLayout>
