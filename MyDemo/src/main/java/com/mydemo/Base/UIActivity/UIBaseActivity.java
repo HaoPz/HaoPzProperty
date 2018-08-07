@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mydemo.Base.Base2Activity;
+import com.mydemo.Base.UIActivity.DialogAndBottomSheetDialog.BottomSheetDialogActivity;
+import com.mydemo.Base.UIActivity.DialogAndBottomSheetDialog.DialogActivity;
+import com.mydemo.Base.UIActivity.DialogAndBottomSheetDialog.DialogFragmentActivity;
+import com.mydemo.Base.UIActivity.RecyclerView.RecyclerViewEditActivity;
+import com.mydemo.Base.UIActivity.ViewPager.LoopViewPagerActivity;
 import com.mydemo.R;
 
 /**
@@ -21,8 +26,12 @@ public class UIBaseActivity extends Base2Activity {
     private TextView photo_choose_picker2;
 
     private TextView sticky_header1;
+    private TextView dialog_demo;
     private TextView dialog_fragment_demo;
     private TextView diy_viewgroup;
+    private TextView loop_viewpager;
+    private TextView bottomSheetDialog;
+    private TextView recyclerViewEdit;
 
     @Override
     public void setDate() {
@@ -58,6 +67,14 @@ public class UIBaseActivity extends Base2Activity {
             }
         });
 
+        dialog_demo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goDialogActivity = new Intent(UIBaseActivity.this, DialogActivity.class);
+                startActivity(goDialogActivity);
+            }
+        });
+
         dialog_fragment_demo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +90,31 @@ public class UIBaseActivity extends Base2Activity {
                 startActivity(goDialogFragmentActivity);
             }
         });
+
+        loop_viewpager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goDialogFragmentActivity = new Intent(UIBaseActivity.this, LoopViewPagerActivity.class);
+                startActivity(goDialogFragmentActivity);
+            }
+        });
+
+        bottomSheetDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goBottomDialogSheet = new Intent(UIBaseActivity.this, BottomSheetDialogActivity.class);
+                startActivity(goBottomDialogSheet);
+            }
+        });
+
+        recyclerViewEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goRecyclerViewEdit = new Intent(UIBaseActivity.this, RecyclerViewEditActivity.class);
+                startActivity(goRecyclerViewEdit);
+            }
+        });
+
     }
 
     @Override
@@ -92,11 +134,23 @@ public class UIBaseActivity extends Base2Activity {
         sticky_header1 = (TextView) contentView.findViewById(R.id.sticky_header1);
         sticky_header1.setText("列表粘性头布局方式一:滑动监听");
 
+        dialog_demo = (TextView) contentView.findViewById(R.id.dialog_demo);
+        dialog_demo.setText("dialog_demo");
+
         dialog_fragment_demo = (TextView) contentView.findViewById(R.id.dialog_fragment_demo);
         dialog_fragment_demo.setText("DialogFragment Demo");
 
         diy_viewgroup = (TextView) contentView.findViewById(R.id.diy_viewgroup);
         diy_viewgroup.setText("横向滑动的ViewGroup,包含子View滑动");
+
+        loop_viewpager = (TextView) contentView.findViewById(R.id.loop_viewpager);
+        loop_viewpager.setText("无限滚动ViewPager");
+
+        bottomSheetDialog = (TextView) contentView.findViewById(R.id.bottomSheetDialog);
+        bottomSheetDialog.setText("BottomSheetDialog");
+
+        recyclerViewEdit = (TextView) contentView.findViewById(R.id.recyclerViewEdit);
+        recyclerViewEdit.setText("RecyclerView Item 是 EditText 数据错乱问题");
     }
 
     @Override

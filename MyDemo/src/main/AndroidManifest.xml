@@ -99,8 +99,12 @@
         <activity android:name=".Base.UIActivity.PhotoChooosePickerActivity" />
         <activity android:name=".Base.UIActivity.PhotoChooosePickerSolveOOMActivity" />
         <activity android:name=".Base.UIActivity.UIStickyHeadActivity" />
-        <activity android:name=".Base.UIActivity.DialogFragmentActivity"/>
+        <activity android:name=".Base.UIActivity.DialogAndBottomSheetDialog.DialogActivity"/>
+        <activity android:name=".Base.UIActivity.DialogAndBottomSheetDialog.DialogFragmentActivity"/>
         <activity android:name=".Base.UIActivity.MyHorizontalScrollViewActivity"/>
+        <activity android:name=".Base.UIActivity.DialogAndBottomSheetDialog.BottomSheetDialogActivity"/>
+        <activity android:name=".Base.UIActivity.RecyclerView.RecyclerViewEditActivity"/>
+        <activity android:name=".Base.UIActivity.ViewPager.LoopViewPagerActivity"/>
 
         <!--多线程学习-->
         <activity android:name=".Base.MuchThread.MuchThreadActivity"/> <!-- base -->

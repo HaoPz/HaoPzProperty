@@ -2,27 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhite">
+    android:background="@drawable/shape_dialog_fragment_bg">
 
     <TextView
         android:id="@+id/dialogFragmentTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_286101"
         android:padding="10dp"
         android:text="Title"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/black"
         android:textSize="@dimen/dimen16" />
 
     <TextView
-        android:padding="10dp"
         android:id="@+id/dialogFragmentContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dialogFragmentTitle"
         android:layout_marginTop="0.5dp"
-        android:background="@color/color_286101"
-        android:textColor="@color/colorWhite" />
+        android:padding="10dp"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,8 +29,9 @@
         android:layout_marginTop="0.5dp"
         android:orientation="horizontal">
 
+        <!--android:background="@color/color_286101"-->
         <TextView
-            android:background="@color/color_286101"
+
             android:id="@+id/dialogFragmentCancle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,10 +40,9 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="取消"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/black" />
 
         <TextView
-            android:background="@color/color_286101"
             android:id="@+id/dialogFragmentSure"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -53,7 +51,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="确认"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
